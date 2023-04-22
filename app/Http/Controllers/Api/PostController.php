@@ -12,9 +12,14 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Post $post)
+    // public function index(Post $post)
+    public function index($date, $currency = null)
     {
-        $posts = Post::all();
+        $query = Post::select('currency', 'date', 'amount')->where('date', $date);
+        if($currency){
+            $query->where('currency', $currency);
+        }
+        $posts= $query->get();
 
         return response()->json([
             'status' => true,
@@ -49,11 +54,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $posts = Post::all()->where('date', 'date'->date)->get()->toArray();
-        return response()->json([
-            'status' => true,
-            'posts' => $posts,
-        ]);
+        //
     }
 
     /**

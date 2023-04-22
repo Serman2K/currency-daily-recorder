@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('posts/{date}', 'App\Http\Controllers\Api\PostController@show')->middleware('auth:sanctum');
+Route::get('posts/{date}/{currency?}', 'App\Http\Controllers\Api\PostController@index')->middleware('auth:sanctum');
 Route::apiResource('posts', PostController::class)->middleware('auth:sanctum');
 
 Route::post('/auth/register', [AuthController::class, 'createUser']);
