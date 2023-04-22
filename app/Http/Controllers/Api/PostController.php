@@ -12,7 +12,6 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    // public function index(Post $post)
     public function index($date, $currency = null)
     {
         $query = Post::select('currency', 'date', 'amount')->where('date', $date);

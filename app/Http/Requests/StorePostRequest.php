@@ -29,6 +29,3 @@ class StorePostRequest extends FormRequest
         ];
     }
 }
-
-// 'unique:posts,date,NULL,currency'
-// 'unique:posts,currency,NULL,date'
